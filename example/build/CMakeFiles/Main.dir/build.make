@@ -125,6 +125,8 @@ Main: CMakeFiles/Main.dir/tools/Logger.cpp.o
 Main: CMakeFiles/Main.dir/window/Window.cpp.o
 Main: CMakeFiles/Main.dir/build.make
 Main: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
+Main: /usr/lib/x86_64-linux-gnu/libGLX.so
+Main: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 Main: CMakeFiles/Main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fellas/code/c-game-programming/example/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Main.dir/link.txt --verbose=$(VERBOSE)

@@ -33,3 +33,8 @@ else()
   # Clang and GCC may need libstd++
   target_link_libraries(Main ${GLFW3_LIBRARY} stdc++)
 endif()
+
+set(OpenGL_GL_PREFERENCE GLVND)
+find_package(OpenGL REQUIRED)
+
+target_link_libraries(Main ${GLFW3_LIBRARY} OpenGL::GL)

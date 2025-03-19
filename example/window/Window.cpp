@@ -7,6 +7,7 @@ bool Window::init(unsigned int width, unsigned int height,
   if (!glfwInit())
   {
     Logger::log(1, "%s: glfwInit() error\n", __FUNCTION__);
+    
     return false;
   }
   /* set a hint for the NEXT window created */
@@ -21,15 +22,27 @@ bool Window::init(unsigned int width, unsigned int height,
     glfwTerminate();
     return false;
   }
-  Logger::log(1, "%s: Window successfilly initialized\n", 
+    
+  glfwMakeContextCurrent(mWindow);
+
+  Logger::log(1, "%s: Window successfully initialized\n", 
               __FUNCTION__);
   return true;
 }
 
 void Window::mainLoop()
 {
+  glfwSwapInterval(1);
+  float color = 0.0f;
+
   while (!glfwWindowShouldClose(mWindow))
-  { /* pole events in a loop */
+  { 
+    color >= 1.0f ? color = 0.0f : color += 0.01f;
+    glClearColor(color, color, color, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glfwSwapBuffers(mWindow);
+
+    /* pole events in a loop */
     glfwPollEvents();
   }
 }
