@@ -1,0 +1,17 @@
+#ifndef WINDOW_H_
+#define WINDOW_H_
+#include <string>
+#include <GLFW/glfw3.h>
+
+class Window {
+public:
+  bool init(unsigned int width, unsigned int height,
+            std::string title);
+  void mainLoop();
+  void cleanup();
+
+private:
+  GLFWwindow * mWindow = nullptr;
+};
+
+#endif // !WINDOW_H_
