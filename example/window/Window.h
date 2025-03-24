@@ -16,6 +16,7 @@ private:
   void handleWindowMoveEvents(int xpos, int ypos);
   void handleWindowMinimizedEvents(int minimized);
   void handleWindowMaximizedEvents(int maximized);
+  void handleWindowResizeEvents(int width, int height); 
   void handleWindowCloseEvents();
   
   void handleKeyEvents(int key, int scancode, int action, int mods);

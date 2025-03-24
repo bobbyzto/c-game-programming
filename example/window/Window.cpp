@@ -11,7 +11,7 @@ bool Window::init(unsigned int width, unsigned int height,
     return false;
   }
   /* set a hint for the NEXT window created */
-  glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+  glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
   mWindow = glfwCreateWindow(width, height,
                              title.c_str(), nullptr, nullptr);
@@ -34,10 +34,10 @@ bool Window::init(unsigned int width, unsigned int height,
   );
   
   // !TODO: Set a callback for window resizing
-  /*glfwSetWindowSizeCallback(mWindow, [](GLFWwindow *win, int width, int height) {*/
-    /*auto thisWindow = static_cast<Window*>(glfwGetWindowUserPointer(win));*/
-    /*thisWindow->handleWindowResizeEvents(width, height);*/
-  /*});*/
+  glfwSetWindowSizeCallback(mWindow, [](GLFWwindow *win, int width, int height) {
+    auto thisWindow = static_cast<Window*>(glfwGetWindowUserPointer(win));
+    thisWindow->handleWindowResizeEvents(width, height);
+  });
  
   glfwSetWindowIconifyCallback(mWindow, [](GLFWwindow *win, int minimized) {
     auto thisWindow = static_cast<Window*>(glfwGetWindowUserPointer(win));
@@ -119,6 +119,12 @@ void Window::handleWindowMaximizedEvents(int maximized)
   }
 }
 
+void Window::handleWindowResizeEvents(int width, int height)
+{
+  Logger::log(1, "%s: Window size changed to: %ix%i\n", 
+    __FUNCTION__, width, height);
+}
+
 void Window::handleWindowCloseEvents()
 {
   Logger::log(1, "%s: Window got close event ... bye!\n", __FUNCTION__);
@@ -146,7 +152,7 @@ void Window::handleKeyEvents(int key, int scancode, int action,
       actionName = "invalid";
   }
   const char * keyName = glfwGetKeyName(key,0);
-  Logger::log(1, "%s: key %s (key %i, scancode %i) %s\n", 
+    Logger::log(1, "%s: key %s (key %i, scancode %i) %s\n", 
     __FUNCTION__, keyName, key, scancode,
     actionName.c_str());
 }
