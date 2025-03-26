@@ -1,5 +1,6 @@
 #include "Window.h"
 #include "Logger.h"
+#include "Keys.h"
 
 bool Window::init(unsigned int width, unsigned int height,
                   std::string title)
@@ -33,7 +34,6 @@ bool Window::init(unsigned int width, unsigned int height,
     }
   );
   
-  // !TODO: Set a callback for window resizing
   glfwSetWindowSizeCallback(mWindow, [](GLFWwindow *win, int width, int height) {
     auto thisWindow = static_cast<Window*>(glfwGetWindowUserPointer(win));
     thisWindow->handleWindowResizeEvents(width, height);
@@ -134,7 +134,9 @@ void Window::handleWindowCloseEvents()
 void Window::handleKeyEvents(int key, int scancode, int action,
   int mods)
 {
+  WASDKeys wasd;
   std::string actionName;
+
   switch (action) {
     case GLFW_PRESS:
       actionName = "pressed";
@@ -151,8 +153,32 @@ void Window::handleKeyEvents(int key, int scancode, int action,
     default:
       actionName = "invalid";
   }
+  switch(key) {
+    case GLFW_KEY_W:
+      action == GLFW_PRESS ? 
+        wasd.WKeyState = GLFW_PRESS : 
+        wasd.WKeyState = 0;
+        break;
+    case GLFW_KEY_A:
+     action == GLFW_PRESS ? 
+        wasd.AKeyState = GLFW_PRESS : 
+        wasd.AKeyState = 0;
+        break;
+    case GLFW_KEY_S:
+      action == GLFW_PRESS ? 
+        wasd.SKeyState = GLFW_PRESS : 
+        wasd.SKeyState = 0;
+        break;
+    case GLFW_KEY_D:
+      action == GLFW_PRESS ? 
+        wasd.DKeyState = GLFW_PRESS : 
+        wasd.DKeyState = 0;
+        break;
+  }
   const char * keyName = glfwGetKeyName(key,0);
-    Logger::log(1, "%s: key %s (key %i, scancode %i) %s\n", 
+  wasd.handleWASD(mWindow);
+
+  Logger::log(1, "%s: key %s (key %i, scancode %i) %s\n", 
     __FUNCTION__, keyName, key, scancode,
     actionName.c_str());
 }

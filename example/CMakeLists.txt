@@ -11,6 +11,7 @@ endif()
 project(Main)
 
 file(GLOB SOURCES
+  src/glad.c
   Main.cpp
   window/*.cpp
   tools/*.cpp
@@ -25,7 +26,7 @@ if(UNIX)
   set(GLFW3_LIBRARY glfw)
 endif()
 
-include_directories(${GLFW3_INCLUDE_DIR} window tools)
+target_include_directories(Main PUBLIC ${GLFW3_INCLUDE_DIR} include src window tools opengl model)
 
 if(MSVC)
   target_link_libraries(Main ${GLFW3_LIBRARY})

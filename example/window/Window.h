@@ -12,6 +12,10 @@ public:
   
 private:
   GLFWwindow * mWindow = nullptr;
+  bool Wpressed = false;
+  bool Apressed = false;
+  bool Spressed = false;
+  bool Dpressed = false;
 
   void handleWindowMoveEvents(int xpos, int ypos);
   void handleWindowMinimizedEvents(int minimized);
