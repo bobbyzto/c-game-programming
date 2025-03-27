@@ -2,6 +2,7 @@
 #define WINDOW_H_
 #include <string>
 #include <GLFW/glfw3.h>
+#include "Keys.h"
 
 class Window {
 public:
@@ -12,10 +13,7 @@ public:
   
 private:
   GLFWwindow * mWindow = nullptr;
-  bool Wpressed = false;
-  bool Apressed = false;
-  bool Spressed = false;
-  bool Dpressed = false;
+  WASDKeys wasd;
 
   void handleWindowMoveEvents(int xpos, int ypos);
   void handleWindowMinimizedEvents(int minimized);

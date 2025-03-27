@@ -186,6 +186,7 @@ CMakeFiles/Main.dir/Main.cpp.o
  /usr/include/GL/gl.h
  /usr/include/GL/glext.h
  /home/fellas/code/c-game-programming/example/include/KHR/khrplatform.h
+ /home/fellas/code/c-game-programming/example/window/Keys.h
  /home/fellas/code/c-game-programming/example/tools/Logger.h
  /home/fellas/code/c-game-programming/example/window/Keys.h
 
@@ -434,6 +435,6 @@ CMakeFiles/Main.dir/window/Window.cpp.o
  /usr/include/GL/gl.h
  /usr/include/GL/glext.h
  /home/fellas/code/c-game-programming/example/include/KHR/khrplatform.h
- /home/fellas/code/c-game-programming/example/tools/Logger.h
  /home/fellas/code/c-game-programming/example/window/Keys.h
+ /home/fellas/code/c-game-programming/example/tools/Logger.h
 

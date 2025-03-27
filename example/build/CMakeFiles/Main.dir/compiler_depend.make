@@ -185,6 +185,7 @@ CMakeFiles/Main.dir/Main.cpp.o: /home/fellas/code/c-game-programming/example/Mai
   /usr/include/GL/gl.h \
   /usr/include/GL/glext.h \
   /home/fellas/code/c-game-programming/example/include/KHR/khrplatform.h \
+  /home/fellas/code/c-game-programming/example/window/Keys.h \
   /home/fellas/code/c-game-programming/example/tools/Logger.h \
   /home/fellas/code/c-game-programming/example/window/Keys.h
 
@@ -430,8 +431,8 @@ CMakeFiles/Main.dir/window/Window.cpp.o: /home/fellas/code/c-game-programming/ex
   /usr/include/GL/gl.h \
   /usr/include/GL/glext.h \
   /home/fellas/code/c-game-programming/example/include/KHR/khrplatform.h \
-  /home/fellas/code/c-game-programming/example/tools/Logger.h \
-  /home/fellas/code/c-game-programming/example/window/Keys.h
+  /home/fellas/code/c-game-programming/example/window/Keys.h \
+  /home/fellas/code/c-game-programming/example/tools/Logger.h
 
 
 /home/fellas/code/c-game-programming/example/window/Window.cpp:
