@@ -14,11 +14,11 @@ bool Window::init(unsigned int width, unsigned int height,
   glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
   mWindow = glfwCreateWindow(width, height,
-                             title.c_str(), nullptr, nullptr);
+    title.c_str(), nullptr, nullptr);
   if (!mWindow)
   {
     Logger::log(1, "%s: Could not create window\n",
-                __FUNCTION__);
+      __FUNCTION__);
     glfwTerminate();
     return false;
   }
@@ -155,6 +155,9 @@ void Window::handleKeyEvents(int key, int scancode, int action,
   const char * keyName = glfwGetKeyName(key,0);
   
   wasd.handleWASD(key, action, actionName);
+
+  /*int focused = glfwGetWindowAttrib(mWindow, GLFW_FOCUSED);*/
+  
   Logger::log(1, "%s: key %s (key %i, scancode %i) %s\n", 
     __FUNCTION__, keyName, key, scancode,
     actionName.c_str());
@@ -230,6 +233,10 @@ void Window::mainLoop()
 
 void Window::cleanup()
 {
+  if (!mWindow)
+  {
+    return;
+  }
   Logger::log(1, "%s: Terminating Window\n", __FUNCTION__);
   glfwDestroyWindow(mWindow);
   glfwTerminate();
